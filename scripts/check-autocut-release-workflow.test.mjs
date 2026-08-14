@@ -21,7 +21,7 @@ assert.equal(workflowConfig.schemaVersion, '2026-06-06.sdkwork.workflow.v1');
 assert.deepEqual(workflowConfig.app, {
   id: 'sdkwork-video-cut',
   name: 'SDKWork Video Cut',
-  repository: 'Sdkwork-Cloud/sdkwork-video-cut',
+  repository: 'sdkwork-ai/sdkwork-video-cut',
   sourcePath: '.',
   configPath: 'sdkwork.app.config.json',
 });
@@ -71,7 +71,7 @@ for (const marker of [
   'name: Package Application',
   'workflow_dispatch:',
   'config_path: sdkwork.workflow.json',
-  `Sdkwork-Cloud/sdkwork-github-workflow/.github/workflows/sdkwork-package.yml@${frameworkRef}`,
+  `sdkwork-ai/sdkwork-github-workflow/.github/workflows/sdkwork-package.yml@${frameworkRef}`,
   `framework_ref: ${frameworkRef}`,
   "package_version: ${{ github.event.inputs.package_version || '' }}",
   'secrets: inherit',

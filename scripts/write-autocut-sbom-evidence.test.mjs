@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+﻿﻿#!/usr/bin/env node
 
 import assert from 'node:assert/strict';
 import crypto from 'node:crypto';
@@ -109,7 +109,7 @@ for (const entry of completeEvidence.packages) {
   assert.match(entry.sha256, /^[a-f0-9]{64}$/u);
   assert.equal(
     entry.url,
-    `https://github.com/Sdkwork-Cloud/sdkwork-video-cut/releases/download/v9.8.7/${path.basename(expectedPath)}`,
+    `https://github.com/sdkwork-ai/sdkwork-video-cut/releases/download/v9.8.7/${path.basename(expectedPath)}`,
   );
   assert.ok(['CycloneDX', 'SPDX'].includes(entry.format));
 }

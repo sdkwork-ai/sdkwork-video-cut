@@ -4,7 +4,7 @@
   "app": {
     "id": "sdkwork-video-cut",
     "name": "SDKWork Video Cut",
-    "repository": "Sdkwork-Cloud/sdkwork-video-cut",
+    "repository": "sdkwork-ai/sdkwork-video-cut",
     "sourcePath": ".",
     "configPath": "sdkwork.app.config.json"
   },

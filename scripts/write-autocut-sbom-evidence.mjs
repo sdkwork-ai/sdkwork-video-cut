@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+﻿﻿#!/usr/bin/env node
 
 import crypto from 'node:crypto';
 import fs from 'node:fs';
@@ -16,7 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 const sbomEvidenceSchemaVersion = '2026-05-08.autocut-sbom-evidence.v1';
 const defaultSbomDirRelativePath = 'artifacts/release/sbom';
 const defaultOutputRelativePath = 'artifacts/release/autocut-sbom-evidence.json';
-const defaultReleaseRepositoryUrl = 'https://github.com/Sdkwork-Cloud/sdkwork-video-cut';
+const defaultReleaseRepositoryUrl = 'https://github.com/sdkwork-ai/sdkwork-video-cut';
 const sbomFileSuffixes = ['.cdx.json', '.cyclonedx.json', '.spdx.json', '.sbom.json'];
 const packageIds = [
   'windows-x64-desktop-msi',

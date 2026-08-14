@@ -26,9 +26,9 @@ const healthyReport = createAutoCutReleaseEnvironmentReport({
       return { status: 0, stdout: '', stderr: '' };
     }
     if (command === 'gh' && args.join(' ') === 'auth status') {
-      return { status: 0, stdout: 'Logged in to github.com account Sdkwork-Cloud', stderr: '' };
+      return { status: 0, stdout: 'Logged in to github.com account sdkwork-ai', stderr: '' };
     }
-    if (command === 'gh' && args.join(' ') === 'release view v0.1.6 --repo Sdkwork-Cloud/sdkwork-video-cut') {
+    if (command === 'gh' && args.join(' ') === 'release view v0.1.6 --repo sdkwork-ai/sdkwork-video-cut') {
       return { status: 1, stdout: '', stderr: 'release not found' };
     }
     if (command === 'node') {
@@ -86,7 +86,7 @@ const blockedReport = createAutoCutReleaseEnvironmentReport({
         stderr: 'The token in default is invalid.',
       };
     }
-    if (command === 'gh' && args.join(' ') === 'release view v0.1.6 --repo Sdkwork-Cloud/sdkwork-video-cut') {
+    if (command === 'gh' && args.join(' ') === 'release view v0.1.6 --repo sdkwork-ai/sdkwork-video-cut') {
       return {
         status: 1,
         stdout: '',
@@ -147,7 +147,7 @@ const nonWindowsBlockedReport = createAutoCutReleaseEnvironmentReport({
     if (command === 'gh' && args.join(' ') === 'auth status') {
       return { status: 1, stdout: '', stderr: 'not logged in' };
     }
-    if (command === 'gh' && args.join(' ') === 'release view v0.1.6 --repo Sdkwork-Cloud/sdkwork-video-cut') {
+    if (command === 'gh' && args.join(' ') === 'release view v0.1.6 --repo sdkwork-ai/sdkwork-video-cut') {
       return { status: 1, stdout: '', stderr: 'HTTP 401: Requires authentication' };
     }
     if (command === 'node') {

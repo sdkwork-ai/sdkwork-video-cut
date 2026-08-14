@@ -3201,7 +3201,7 @@ assertRule(
 assertRule(
   !fs.existsSync(path.join(rootDir, '.github/workflows/autocut-desktop-release.yml')) &&
     packageWorkflowSource.includes('name: Package Application') &&
-    packageWorkflowSource.includes('Sdkwork-Cloud/sdkwork-github-workflow/.github/workflows/sdkwork-package.yml@b0829529b9277a3da32b90c2d36ff34ff09fa832') &&
+    packageWorkflowSource.includes('sdkwork-ai/sdkwork-github-workflow/.github/workflows/sdkwork-package.yml@b0829529b9277a3da32b90c2d36ff34ff09fa832') &&
     packageWorkflowSource.includes('framework_ref: b0829529b9277a3da32b90c2d36ff34ff09fa832') &&
     packageWorkflowSource.includes('config_path: sdkwork.workflow.json') &&
     !packageWorkflowSource.includes('gh release upload') &&

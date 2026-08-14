@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+﻿﻿#!/usr/bin/env node
 
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -174,7 +174,7 @@ function writeSbomEvidence(root, overrides = {}) {
     packageId,
     format,
     path: `artifacts/release/sbom/${fileName}`,
-    url: `https://github.com/Sdkwork-Cloud/sdkwork-video-cut/releases/download/v0.1.6/${fileName}`,
+    url: `https://github.com/sdkwork-ai/sdkwork-video-cut/releases/download/v0.1.6/${fileName}`,
     byteSize: 100,
     sha256,
   }));
@@ -201,7 +201,7 @@ function readyEnvironmentReport() {
   return {
     schemaVersion: '2026-05-08.autocut-release-environment.v1',
     releaseTag: 'v0.1.6',
-    repository: 'Sdkwork-Cloud/sdkwork-video-cut',
+    repository: 'sdkwork-ai/sdkwork-video-cut',
     ready: true,
     checks: {},
     blockers: [],

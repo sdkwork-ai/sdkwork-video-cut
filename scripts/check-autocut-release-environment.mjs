@@ -13,7 +13,7 @@ import {
 } from './autocut-cli-args.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
-const defaultRepository = 'Sdkwork-Cloud/sdkwork-video-cut';
+const defaultRepository = 'sdkwork-ai/sdkwork-video-cut';
 const defaultReleaseTag = 'v0.1.8';
 
 export function createAutoCutReleaseEnvironmentReport({

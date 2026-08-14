@@ -183,7 +183,7 @@
           "sourceType": "BINARY_URL",
           "packageFormat": "MSI",
           "platform": "DESKTOP_WINDOWS",
-          "url": "https://github.com/Sdkwork-Cloud/sdkwork-video-cut/releases/download/v0.1.8/SDKWork%20Video%20Cut_0.1.8_x64_en-US.msi",
+          "url": "https://github.com/sdkwork-ai/sdkwork-video-cut/releases/download/v0.1.8/SDKWork%20Video%20Cut_0.1.8_x64_en-US.msi",
           "enabled": false,
           "metadata": {
             "releaseAsset": true,
@@ -199,7 +199,7 @@
           "sourceType": "BINARY_URL",
           "packageFormat": "EXE",
           "platform": "DESKTOP_WINDOWS",
-          "url": "https://github.com/Sdkwork-Cloud/sdkwork-video-cut/releases/download/v0.1.8/SDKWork%20Video%20Cut_0.1.8_x64-setup.exe",
+          "url": "https://github.com/sdkwork-ai/sdkwork-video-cut/releases/download/v0.1.8/SDKWork%20Video%20Cut_0.1.8_x64-setup.exe",
           "enabled": false,
           "metadata": {
             "releaseAsset": true,
@@ -215,7 +215,7 @@
           "sourceType": "BINARY_URL",
           "packageFormat": "DEB",
           "platform": "DESKTOP_LINUX",
-          "url": "https://github.com/Sdkwork-Cloud/sdkwork-video-cut/releases/download/v0.1.8/SDKWork%20Video%20Cut_0.1.8_amd64.deb",
+          "url": "https://github.com/sdkwork-ai/sdkwork-video-cut/releases/download/v0.1.8/SDKWork%20Video%20Cut_0.1.8_amd64.deb",
           "enabled": false,
           "metadata": {
             "releaseAsset": true,
@@ -234,7 +234,7 @@
           "sourceType": "BINARY_URL",
           "packageFormat": "APPIMAGE",
           "platform": "DESKTOP_LINUX",
-          "url": "https://github.com/Sdkwork-Cloud/sdkwork-video-cut/releases/download/v0.1.8/SDKWork%20Video%20Cut_0.1.8_amd64.AppImage",
+          "url": "https://github.com/sdkwork-ai/sdkwork-video-cut/releases/download/v0.1.8/SDKWork%20Video%20Cut_0.1.8_amd64.AppImage",
           "enabled": false,
           "metadata": {
             "releaseAsset": true,
@@ -253,7 +253,7 @@
           "sourceType": "BINARY_URL",
           "packageFormat": "DMG",
           "platform": "DESKTOP_MACOS",
-          "url": "https://github.com/Sdkwork-Cloud/sdkwork-video-cut/releases/download/v0.1.8/SDKWork%20Video%20Cut_0.1.8_x64.dmg",
+          "url": "https://github.com/sdkwork-ai/sdkwork-video-cut/releases/download/v0.1.8/SDKWork%20Video%20Cut_0.1.8_x64.dmg",
           "enabled": false,
           "metadata": {
             "releaseAsset": true,
@@ -269,7 +269,7 @@
           "sourceType": "BINARY_URL",
           "packageFormat": "DMG",
           "platform": "DESKTOP_MACOS",
-          "url": "https://github.com/Sdkwork-Cloud/sdkwork-video-cut/releases/download/v0.1.8/SDKWork%20Video%20Cut_0.1.8_aarch64.dmg",
+          "url": "https://github.com/sdkwork-ai/sdkwork-video-cut/releases/download/v0.1.8/SDKWork%20Video%20Cut_0.1.8_aarch64.dmg",
           "enabled": false,
           "metadata": {
             "releaseAsset": true,

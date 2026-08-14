@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+﻿﻿#!/usr/bin/env node
 
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -56,7 +56,7 @@ function writeManifest(root) {
           sourceType: 'BINARY_URL',
           packageFormat,
           platform,
-          url: `https://github.com/Sdkwork-Cloud/sdkwork-video-cut/releases/download/v0.1.1/${id}`,
+          url: `https://github.com/sdkwork-ai/sdkwork-video-cut/releases/download/v0.1.1/${id}`,
           enabled: false,
           architecture,
           metadata: {
@@ -169,7 +169,7 @@ function writeSbomEvidence(root, overrides = {}) {
       .map(([packageId]) => ({
         packageId,
         format: packageId.includes('linux') ? 'SPDX' : 'CycloneDX',
-        url: `https://github.com/Sdkwork-Cloud/sdkwork-video-cut/releases/download/v0.1.1/${packageId}.sbom.json`,
+        url: `https://github.com/sdkwork-ai/sdkwork-video-cut/releases/download/v0.1.1/${packageId}.sbom.json`,
         sha256: sbomShaFor(packageId),
       })),
   });
@@ -282,7 +282,7 @@ writeJson(path.join(blockedSbomEvidenceRoot, 'artifacts', 'release', 'autocut-sb
   packages: packageSpecs.map(([packageId]) => ({
     packageId,
     format: 'CycloneDX',
-    url: `https://github.com/Sdkwork-Cloud/sdkwork-video-cut/releases/download/v0.1.1/${packageId}.sbom.json`,
+    url: `https://github.com/sdkwork-ai/sdkwork-video-cut/releases/download/v0.1.1/${packageId}.sbom.json`,
     sha256: sbomShaFor(packageId),
   })),
   blockers: [

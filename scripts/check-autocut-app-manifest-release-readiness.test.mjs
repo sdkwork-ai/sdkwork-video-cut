@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+﻿﻿#!/usr/bin/env node
 
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -93,7 +93,7 @@ function packageFixture(id, overrides = {}) {
     sourceType: 'BINARY_URL',
     packageFormat: 'MSI',
     platform: 'DESKTOP_WINDOWS',
-    url: `https://github.com/Sdkwork-Cloud/sdkwork-video-cut/releases/download/v0.1.1/${id}`,
+    url: `https://github.com/sdkwork-ai/sdkwork-video-cut/releases/download/v0.1.1/${id}`,
     enabled: false,
     architecture: 'x64',
     ...overrides,
@@ -120,7 +120,7 @@ function commercialPackageFixture(id, overrides = {}) {
       },
       sbom: {
         format: 'CycloneDX',
-        url: 'https://github.com/Sdkwork-Cloud/sdkwork-video-cut/releases/download/v0.1.1/sbom.cdx.json',
+        url: 'https://github.com/sdkwork-ai/sdkwork-video-cut/releases/download/v0.1.1/sbom.cdx.json',
         sha256: 'b'.repeat(64),
       },
     },
@@ -136,7 +136,7 @@ function commercialPackageFixture(id, overrides = {}) {
       },
       sbom: {
         format: 'CycloneDX',
-        url: 'https://github.com/Sdkwork-Cloud/sdkwork-video-cut/releases/download/v0.1.1/sbom.cdx.json',
+        url: 'https://github.com/sdkwork-ai/sdkwork-video-cut/releases/download/v0.1.1/sbom.cdx.json',
         sha256: 'b'.repeat(64),
       },
       ...(overrides.metadata ?? {}),
@@ -262,7 +262,7 @@ writeManifest(activePlaceholderEvidenceRoot, {
             },
             sbom: {
               format: 'CycloneDX',
-              url: 'https://github.com/Sdkwork-Cloud/sdkwork-video-cut/releases/download/v0.1.1/sbom.cdx.json',
+              url: 'https://github.com/sdkwork-ai/sdkwork-video-cut/releases/download/v0.1.1/sbom.cdx.json',
               sha256: '0'.repeat(64),
             },
           },
@@ -308,7 +308,7 @@ writeManifest(activeReadyRoot, {
             },
             sbom: {
               format: 'SPDX',
-              url: 'https://github.com/Sdkwork-Cloud/sdkwork-video-cut/releases/download/v0.1.1/sbom.spdx.json',
+              url: 'https://github.com/sdkwork-ai/sdkwork-video-cut/releases/download/v0.1.1/sbom.spdx.json',
               sha256: 'c'.repeat(64),
             },
           },
