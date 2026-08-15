@@ -1,0 +1,12 @@
+[workspace]
+members = [
+  "crates/sdkwork-api-video-cut-assembly",
+  "crates/sdkwork-api-video-cut-standalone-gateway",
+]
+resolver = "2"
+
+[workspace.dependencies]
+sdkwork_api_video_cut_assembly = { path = "crates/sdkwork-api-video-cut-assembly", package = "sdkwork-api-video-cut-assembly" }
+
+sdkwork_web_bootstrap = { path = "../sdkwork-web-framework/crates/sdkwork-web-bootstrap", package = "sdkwork-web-bootstrap" }
+

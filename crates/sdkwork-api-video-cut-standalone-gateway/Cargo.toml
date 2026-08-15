@@ -6,4 +6,4 @@ edition = "2021"
 [dependencies]
 axum = "0.8"
 tokio = { version = "1.48", features = ["macros", "net", "rt-multi-thread"] }
-sdkwork-api-video-cut-assembly = { path = "../sdkwork-api-video-cut-assembly" }
+sdkwork_api_video_cut_assembly.workspace = true
