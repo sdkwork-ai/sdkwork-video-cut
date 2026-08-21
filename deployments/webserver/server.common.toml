@@ -1,0 +1,5 @@
+specVersion = 1
+kind = "sdkwork.webserver.server"
+id = "video_cut"
+enabled = false
+description = "sdkwork-video-cut webserver placeholder (align-application-deploy-layout)"
