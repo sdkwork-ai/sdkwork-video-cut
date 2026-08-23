@@ -209,5 +209,50 @@
   "packaging": {
     "targets": [],
     "cloudConfigFiles": []
+  },
+  "cloudPublicHosts": {
+    "application.public-ingress": {
+      "httpHost": "video-cut.sdkwork.com",
+      "environments": {
+        "development": {
+          "httpHosts": [
+            "video-cut-dev.sdkwork.com",
+            "video-cut-dev.birdcoder.com",
+            "video-cut-dev.dtupay.com",
+            "video-cut-dev.sdkwork.cn",
+            "video-cut-dev.birdcoder.cn",
+            "video-cut-dev.dtupay.cn"
+          ]
+        },
+        "test": {
+          "httpHosts": [
+            "video-cut-test.sdkwork.com",
+            "video-cut-test.birdcoder.com",
+            "video-cut-test.dtupay.com",
+            "video-cut-test.sdkwork.cn",
+            "video-cut-test.birdcoder.cn",
+            "video-cut-test.dtupay.cn"
+          ]
+        },
+        "staging": {
+          "httpHosts": [
+            "video-cut-staging.sdkwork.com",
+            "video-cut-staging.birdcoder.com",
+            "video-cut-staging.dtupay.com",
+            "video-cut-staging.sdkwork.cn",
+            "video-cut-staging.birdcoder.cn",
+            "video-cut-staging.dtupay.cn"
+          ]
+        }
+      },
+      "httpHosts": [
+        "video-cut.sdkwork.com",
+        "video-cut.birdcoder.com",
+        "video-cut.dtupay.com",
+        "video-cut.sdkwork.cn",
+        "video-cut.birdcoder.cn",
+        "video-cut.dtupay.cn"
+      ]
+    }
   }
 }
