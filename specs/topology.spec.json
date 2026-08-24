@@ -221,7 +221,15 @@
             "video-cut-dev.dtupay.com",
             "video-cut-dev.sdkwork.cn",
             "video-cut-dev.birdcoder.cn",
-            "video-cut-dev.dtupay.cn"
+            "video-cut-dev.dtupay.cn",
+            "video-cut-dev.skubc.com",
+            "video-cut-dev.skubc.cn",
+            "video-cut-dev.zowalk.com",
+            "video-cut-dev.zowalk.cn",
+            "video-cut-dev.offer86.com",
+            "video-cut-dev.offer86.cn",
+            "video-cut-dev.86offer.com",
+            "video-cut-dev.86offer.cn"
           ]
         },
         "test": {
@@ -231,7 +239,15 @@
             "video-cut-test.dtupay.com",
             "video-cut-test.sdkwork.cn",
             "video-cut-test.birdcoder.cn",
-            "video-cut-test.dtupay.cn"
+            "video-cut-test.dtupay.cn",
+            "video-cut-test.skubc.com",
+            "video-cut-test.skubc.cn",
+            "video-cut-test.zowalk.com",
+            "video-cut-test.zowalk.cn",
+            "video-cut-test.offer86.com",
+            "video-cut-test.offer86.cn",
+            "video-cut-test.86offer.com",
+            "video-cut-test.86offer.cn"
           ]
         },
         "staging": {
@@ -241,7 +257,15 @@
             "video-cut-staging.dtupay.com",
             "video-cut-staging.sdkwork.cn",
             "video-cut-staging.birdcoder.cn",
-            "video-cut-staging.dtupay.cn"
+            "video-cut-staging.dtupay.cn",
+            "video-cut-staging.skubc.com",
+            "video-cut-staging.skubc.cn",
+            "video-cut-staging.zowalk.com",
+            "video-cut-staging.zowalk.cn",
+            "video-cut-staging.offer86.com",
+            "video-cut-staging.offer86.cn",
+            "video-cut-staging.86offer.com",
+            "video-cut-staging.86offer.cn"
           ]
         }
       },
@@ -251,7 +275,15 @@
         "video-cut.dtupay.com",
         "video-cut.sdkwork.cn",
         "video-cut.birdcoder.cn",
-        "video-cut.dtupay.cn"
+        "video-cut.dtupay.cn",
+        "video-cut.skubc.com",
+        "video-cut.skubc.cn",
+        "video-cut.zowalk.com",
+        "video-cut.zowalk.cn",
+        "video-cut.offer86.com",
+        "video-cut.offer86.cn",
+        "video-cut.86offer.com",
+        "video-cut.86offer.cn"
       ]
     }
   }
