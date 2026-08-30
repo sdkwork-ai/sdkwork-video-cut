@@ -1,6 +1,7 @@
 import { AUTOCUT_TASK_STATUS, AUTOCUT_TASK_TYPE, type AppTask } from '@sdkwork/autocut-types';
 import { formatAutoCutLocalSecondTimestamp } from './datetime.service';
 import { createAutoCutTimestamp } from './identity.service';
+import { fetchAutoCutArtifactFile } from '../runtime/artifactFetch';
 
 export type ExtractedTextSegment = NonNullable<AppTask['extractedText']>[number];
 export type ExtractedTextDownloadSource = AppTask | readonly ExtractedTextSegment[] | undefined;
@@ -238,7 +239,7 @@ export async function createAutoCutTaskPackageArchive(
   const filename = normalizeZipFilename(
     options.filename ?? `autocut-tasks-${formatAutoCutLocalSecondTimestamp(exportedAt)}.zip`,
   );
-  const fetchFile = options.fetchFile ?? fetchAutoCutTaskPackageFile;
+  const fetchFile = options.fetchFile ?? fetchAutoCutArtifactFile;
   const packageableTasks = tasks.filter(hasAutoCutTaskPackageDownloadables);
 
   if (packageableTasks.length === 0) {
@@ -524,10 +525,6 @@ async function addFetchedTaskPackageFile({
       reason: error instanceof Error ? error.message : 'Artifact fetch failed.',
     });
   }
-}
-
-async function fetchAutoCutTaskPackageFile(url: string) {
-  return fetch(url);
 }
 
 function createTaskPackageTranscriptText(task: AppTask) {

@@ -74,19 +74,19 @@
       },
       "platform": [],
       "metadata": {
-        "generatedBy": "apps/scripts/initialize-sdkwork-app-standard-v3.mjs"
+        "generatedPlaceholder": true
       }
     },
     "screenshots": [
       {
-        "id": "sdkwork-video-cut-desktop_windows-screenshot",
+        "id": "sdkwork-video-cut-web-screenshot",
         "type": "SCREENSHOT",
         "purpose": "CATALOG_SCREENSHOT",
-        "url": "https://cdn.sdkwork.com/apps/sdkwork-video-cut/media/desktop_windows-screenshot.png",
-        "platform": "DESKTOP_WINDOWS",
+        "url": "https://cdn.sdkwork.com/apps/sdkwork-video-cut/media/web-screenshot.png",
+        "platform": "WEB",
         "locale": "en-US",
-        "deviceClass": "DESKTOP",
-        "displayType": "DESKTOP_16_10",
+        "deviceClass": "BROWSER",
+        "displayType": "WEB_DESKTOP",
         "width": 1920,
         "height": 1080,
         "format": "PNG",
@@ -107,7 +107,7 @@
         "type": "PREVIEW_IMAGE",
         "purpose": "CATALOG_PREVIEW",
         "url": "https://cdn.sdkwork.com/apps/sdkwork-video-cut/media/preview-cover.png",
-        "platform": "DESKTOP_WINDOWS",
+        "platform": "WEB",
         "locale": "en-US",
         "width": 1600,
         "height": 900,
@@ -124,7 +124,7 @@
       }
     ],
     "metadata": {
-      "assetVersion": "0.1.8",
+      "assetVersion": "0.1.0",
       "defaultLocale": "en-US"
     }
   },
@@ -174,7 +174,10 @@
           },
           "architecture": "x64",
           "deploymentProfile": "standalone",
-          "runtimeTarget": "desktop"
+          "runtimeTarget": "desktop",
+          "profileBinding": "fixed",
+          "targetPlatform": "windows",
+          "clientArchitecture": "tauri"
         },
         {
           "id": "windows-x64-standalone-desktop-exe",
@@ -190,7 +193,10 @@
           },
           "architecture": "x64",
           "deploymentProfile": "standalone",
-          "runtimeTarget": "desktop"
+          "runtimeTarget": "desktop",
+          "profileBinding": "fixed",
+          "targetPlatform": "windows",
+          "clientArchitecture": "tauri"
         },
         {
           "id": "linux-debian-x64-standalone-desktop-deb",
@@ -209,7 +215,10 @@
           },
           "architecture": "x64",
           "deploymentProfile": "standalone",
-          "runtimeTarget": "desktop"
+          "runtimeTarget": "desktop",
+          "profileBinding": "fixed",
+          "targetPlatform": "linux",
+          "clientArchitecture": "tauri"
         },
         {
           "id": "linux-x64-standalone-desktop-appimage",
@@ -228,7 +237,10 @@
           },
           "architecture": "x64",
           "deploymentProfile": "standalone",
-          "runtimeTarget": "desktop"
+          "runtimeTarget": "desktop",
+          "profileBinding": "fixed",
+          "targetPlatform": "linux",
+          "clientArchitecture": "tauri"
         },
         {
           "id": "macos-x64-standalone-desktop-dmg",
@@ -244,7 +256,10 @@
           },
           "architecture": "x64",
           "deploymentProfile": "standalone",
-          "runtimeTarget": "desktop"
+          "runtimeTarget": "desktop",
+          "profileBinding": "fixed",
+          "targetPlatform": "macos",
+          "clientArchitecture": "tauri"
         },
         {
           "id": "macos-arm64-standalone-desktop-dmg",
@@ -260,7 +275,26 @@
           },
           "architecture": "arm64",
           "deploymentProfile": "standalone",
-          "runtimeTarget": "desktop"
+          "runtimeTarget": "desktop",
+          "profileBinding": "fixed",
+          "targetPlatform": "macos",
+          "clientArchitecture": "tauri"
+        },
+        {
+          "id": "linux-x64-standalone-server-tar-gz",
+          "name": "Sdkwork Video Cut standalone server archive",
+          "sourceType": "BINARY_URL",
+          "packageFormat": "TAR_GZ",
+          "platform": "API",
+          "url": "https://cdn.sdkwork.com/apps/sdkwork-video-cut/STABLE/0.1.0/linux-x64-standalone-server-tar-gz-0.1.0.tar.gz",
+          "architecture": "x64",
+          "checksumAlgorithm": "SHA-256",
+          "checksum": "31944328a1df62ff8bf7974fb4c02de49f716f8fb030a3289818a98328724d4b",
+          "deploymentProfile": "standalone",
+          "runtimeTarget": "server",
+          "profileBinding": "fixed",
+          "enabled": true,
+          "metadata": {}
         }
       ],
       "metadata": {
@@ -282,14 +316,12 @@
         "version": "0.1.8",
         "releaseChannel": "STABLE",
         "title": "SDKWork Video Cut 0.1.8",
-        "summary": "Unsigned preview hotfix for machine-readable release evidence status JSON.",
-        "content": "Version 0.1.8 carries forward the v0.1.7 desktop reliability and tag-pinned release fixes, and fixes the aggregate release evidence status upload so autocut-release-evidence-status.json is pure machine-readable JSON without pnpm script banner output. Install package metadata points to the matching GitHub Release assets but remains disabled until real digest, signature, notarization, and SBOM evidence is recorded.",
+        "summary": "SDKWork Video Cut initialized standard release.",
+        "content": "Initial SDKWork App Standard v3 manifest for SDKWork Video Cut.",
         "highlights": [
-          "Aggregate release evidence status is uploaded as pure JSON for automation consumers",
-          "The desktop release workflow still builds from the requested Git tag before uploading assets",
-          "Windows native FFmpeg, Whisper, and reveal helper child processes remain hidden in release builds",
-          "Local media selection and import keep the single-probe stream and duration evidence path",
-          "Commercial release activation remains blocked until signature, notarization, package trust, checksum, and SBOM evidence is complete"
+          "SDKWork App Standard v3 configuration initialized",
+          "platform_app projection metadata standardized",
+          "Download package matrix normalized"
         ],
         "packageIds": [
           "windows-x64-standalone-desktop-msi",
@@ -297,137 +329,14 @@
           "linux-debian-x64-standalone-desktop-deb",
           "linux-x64-standalone-desktop-appimage",
           "macos-x64-standalone-desktop-dmg",
-          "macos-arm64-standalone-desktop-dmg"
+          "macos-arm64-standalone-desktop-dmg",
+          "linux-x64-standalone-server-tar-gz"
         ],
         "publishedAt": "2026-05-17T00:00:00Z",
         "current": true,
         "forceUpdate": false,
-        "minSupportedVersion": "0.1.5",
-        "metadata": {
-          "previewRelease": true,
-          "foldsUnreleasedChangesSince": "v0.1.7",
-          "commercialActivationRequired": [
-            "GitHub Release assets uploaded for every package",
-            "SHA-256 checksum recorded for every enabled package",
-            "Windows Authenticode signature evidence recorded",
-            "macOS Developer ID signing and notarization evidence recorded",
-            "Linux package trust evidence recorded",
-            "SBOM evidence recorded"
-          ]
-        }
-      },
-      {
-        "version": "0.1.7",
-        "releaseChannel": "STABLE",
-        "title": "SDKWork Video Cut 0.1.7",
-        "summary": "Unsigned preview hotfix for Windows native process handling and tag-pinned release packaging.",
-        "content": "Version 0.1.7 carries forward the v0.1.6 commercial preview and adds desktop reliability fixes: native FFmpeg, Whisper, and reveal helpers are launched without visible console windows on Windows; local media selection/import reuse a single FFmpeg probe for stream and duration evidence; blocking media and LLM commands run on the native worker pool; and the GitHub release workflow checks out the requested release tag before building uploaded assets. Install package metadata points to the matching GitHub Release assets but remains disabled until real digest, signature, notarization, and SBOM evidence is recorded.",
-        "highlights": [
-          "Windows native FFmpeg, Whisper, and reveal helper child processes run without visible console windows",
-          "Local media selection and import derive stream and duration evidence from one FFmpeg probe",
-          "Blocking describe, audio smoke, and LLM HTTP commands execute on the native worker pool",
-          "The desktop release workflow builds from the requested Git tag before uploading assets",
-          "Commercial release activation remains blocked until signature, notarization, package trust, checksum, and SBOM evidence is complete"
-        ],
-        "packageIds": [
-          "windows-x64-standalone-desktop-msi",
-          "windows-x64-standalone-desktop-exe",
-          "linux-debian-x64-standalone-desktop-deb",
-          "linux-x64-standalone-desktop-appimage",
-          "macos-x64-standalone-desktop-dmg",
-          "macos-arm64-standalone-desktop-dmg"
-        ],
-        "publishedAt": "2026-05-17T00:00:00Z",
-        "current": false,
-        "forceUpdate": false,
-        "minSupportedVersion": "0.1.5",
-        "metadata": {
-          "previewRelease": true,
-          "foldsUnreleasedChangesSince": "v0.1.6",
-          "commercialActivationRequired": [
-            "GitHub Release assets uploaded for every package",
-            "SHA-256 checksum recorded for every enabled package",
-            "Windows Authenticode signature evidence recorded",
-            "macOS Developer ID signing and notarization evidence recorded",
-            "Linux package trust evidence recorded",
-            "SBOM evidence recorded"
-          ]
-        }
-      },
-      {
-        "version": "0.1.6",
-        "releaseChannel": "STABLE",
-        "title": "SDKWork Video Cut 0.1.6",
-        "summary": "Commercial preview release metadata for the rebuilt intelligent slicing engine and workflow evidence system.",
-        "content": "Version 0.1.6 folds all post-v0.1.5 unreleased work into the next release line: the strategy-based smart slicing engine, speaker-aware structured STT evidence, LLM segmentation agent contracts, task-scoped transcript and plan artifacts, manual review workflow, reusable video deduplication capability, and large-media performance governance. Install package metadata points to the matching GitHub Release assets but remains disabled until real digest, signature, notarization, and SBOM evidence is recorded.",
-        "highlights": [
-          "Smart slicing is centered on transcript-backed semantic segmentation with speaker-aware time ranges",
-          "LLM segmentation uses structured input and output contracts that preserve source timestamps and speaker ids",
-          "Task output directories retain normalized STT artifacts, segmentation artifacts, preview state, subtitles, and execution evidence",
-          "The product flow supports fully automated slicing plus manual preview, correction, deduplication, and selected-slice export",
-          "Large-media and STT performance checks cover audio-first extraction, chunked processing, GPU runtime preparation, and cloud-ready execution policy"
-        ],
-        "packageIds": [
-          "windows-x64-standalone-desktop-msi",
-          "windows-x64-standalone-desktop-exe",
-          "linux-debian-x64-standalone-desktop-deb",
-          "linux-x64-standalone-desktop-appimage",
-          "macos-x64-standalone-desktop-dmg",
-          "macos-arm64-standalone-desktop-dmg"
-        ],
-        "publishedAt": "2026-05-17T00:00:00Z",
-        "current": false,
-        "forceUpdate": false,
-        "minSupportedVersion": "0.1.5",
-        "metadata": {
-          "previewRelease": true,
-          "foldsUnreleasedChangesSince": "v0.1.5",
-          "commercialActivationRequired": [
-            "GitHub Release assets uploaded for every package",
-            "SHA-256 checksum recorded for every enabled package",
-            "Windows Authenticode signature evidence recorded",
-            "macOS Developer ID signing and notarization evidence recorded",
-            "Linux package trust evidence recorded",
-            "SBOM evidence recorded"
-          ]
-        }
-      },
-      {
-        "version": "0.1.5",
-        "releaseChannel": "STABLE",
-        "title": "SDKWork Video Cut 0.1.5",
-        "summary": "Multiplatform unsigned preview release metadata for the hardened intelligent slicing desktop application.",
-        "content": "Version 0.1.5 carries forward the failed assetless v0.1.1, v0.1.2, v0.1.3, and v0.1.4 multiplatform attempts, fixes the macOS workspace verification, Linux Tauri build, and Windows release evidence blockers, and adds hardened smart slicing, mandatory offline speech-to-text evidence, transcript-backed recovery, subtitle opt-in behavior, multiplatform release workflow governance, and commercial release blockers for signing, checksums, and SBOM evidence.",
-        "highlights": [
-          "Smart slicing requires speech-to-text evidence for every generated clip",
-          "Recovered native slice artifacts without transcript evidence fail closed",
-          "Subtitle rendering remains disabled by default and must be explicitly enabled",
-          "Install package metadata points to GitHub Release assets but stays disabled until real digest, signature, and SBOM evidence is recorded",
-          "Commercial release policy requires checksums, installer signatures, and SBOM evidence"
-        ],
-        "packageIds": [
-          "windows-x64-standalone-desktop-msi",
-          "windows-x64-standalone-desktop-exe",
-          "linux-debian-x64-standalone-desktop-deb",
-          "linux-x64-standalone-desktop-appimage",
-          "macos-x64-standalone-desktop-dmg",
-          "macos-arm64-standalone-desktop-dmg"
-        ],
-        "publishedAt": "2026-05-09T00:00:00Z",
-        "current": false,
-        "forceUpdate": false,
-        "minSupportedVersion": "0.1.5",
-        "metadata": {
-          "previewRelease": true,
-          "commercialActivationRequired": [
-            "GitHub Release assets uploaded for every package",
-            "SHA-256 checksum recorded for every enabled package",
-            "Windows Authenticode signature evidence recorded",
-            "macOS Developer ID signing and notarization evidence recorded",
-            "Linux package trust evidence recorded",
-            "SBOM evidence recorded"
-          ]
-        }
+        "minSupportedVersion": "0.1.8",
+        "metadata": {}
       }
     ]
   },
@@ -444,7 +353,7 @@
   },
   "metadata": {
     "standardOwner": "sdkwork-platform",
-    "initializedAt": "2026-05-07T00:00:00Z"
-  },
-  "sdkDependencies": []
+    "initializedAt": "2026-05-07T00:00:00Z",
+    "deploymentConfig": "etc/sdkwork.deployment.config.json"
+  }
 }
