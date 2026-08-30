@@ -12,7 +12,8 @@
         "development",
         "test",
         "staging",
-        "production"
+        "production",
+        "demo"
       ]
     },
     "connectivityPlane": {
@@ -23,8 +24,7 @@
     },
     "deploymentProfile": {
       "allowed": [
-        "standalone",
-        "cloud"
+        "standalone"
       ]
     }
   },
@@ -36,12 +36,9 @@
   "profileFiles": {
     "standalone.development": "etc/topology/standalone.development.env",
     "standalone.production": "etc/topology/standalone.production.env",
-    "cloud.development": "etc/topology/cloud.development.env",
-    "cloud.production": "etc/topology/cloud.production.env",
     "standalone.test": "etc/topology/standalone.test.env",
     "standalone.staging": "etc/topology/standalone.staging.env",
-    "cloud.test": "etc/topology/cloud.test.env",
-    "cloud.staging": "etc/topology/cloud.staging.env"
+    "standalone.demo": "etc/topology/standalone.demo.env"
   },
   "envKeys": {
     "deploymentProfile": "SDKWORK_VIDEO_CUT_DEPLOYMENT_PROFILE",
@@ -58,13 +55,6 @@
       ],
       "bindEnv": "SDKWORK_VIDEO_CUT_APPLICATION_PUBLIC_INGRESS_BIND",
       "httpUrlEnv": "SDKWORK_VIDEO_CUT_APPLICATION_PUBLIC_HTTP_URL"
-    },
-    "platform.api-gateway": {
-      "connectivityPlane": "platform",
-      "protocols": [
-        "http"
-      ],
-      "httpUrlEnv": "SDKWORK_VIDEO_CUT_PLATFORM_API_GATEWAY_HTTP_URL"
     },
     "desktop.client": {
       "connectivityPlane": "application",
@@ -114,32 +104,7 @@
           "application.public-ingress"
         ]
       },
-      "cloud.development": {
-        "processes": [
-          {
-            "id": "desktop-client",
-            "package": "@sdkwork/autocut-desktop",
-            "script": "dev:desktop",
-            "runtimeTargets": [
-              "desktop"
-            ],
-            "clientArchitectures": [
-              "tauri"
-            ],
-            "required": true,
-            "role": "client"
-          }
-        ],
-        "healthSurfaces": [
-          "application.public-ingress",
-          "platform.api-gateway"
-        ]
-      },
       "standalone.production": {
-        "processes": [],
-        "healthSurfaces": []
-      },
-      "cloud.production": {
         "processes": [],
         "healthSurfaces": []
       },
@@ -179,28 +144,7 @@
         "processes": [],
         "healthSurfaces": []
       },
-      "cloud.test": {
-        "processes": [
-          {
-            "id": "desktop-client",
-            "package": "@sdkwork/autocut-desktop",
-            "script": "dev:desktop",
-            "runtimeTargets": [
-              "desktop"
-            ],
-            "clientArchitectures": [
-              "tauri"
-            ],
-            "required": true,
-            "role": "client"
-          }
-        ],
-        "healthSurfaces": [
-          "application.public-ingress",
-          "platform.api-gateway"
-        ]
-      },
-      "cloud.staging": {
+      "standalone.demo": {
         "processes": [],
         "healthSurfaces": []
       }
@@ -266,6 +210,24 @@
             "video-cut-staging.offer86.cn",
             "video-cut-staging.86offer.com",
             "video-cut-staging.86offer.cn"
+          ]
+        },
+        "demo": {
+          "httpHosts": [
+            "video-cut-demo.sdkwork.com",
+            "video-cut-demo.birdcoder.com",
+            "video-cut-demo.dtupay.com",
+            "video-cut-demo.sdkwork.cn",
+            "video-cut-demo.birdcoder.cn",
+            "video-cut-demo.dtupay.cn",
+            "video-cut-demo.skubc.com",
+            "video-cut-demo.skubc.cn",
+            "video-cut-demo.zowalk.com",
+            "video-cut-demo.zowalk.cn",
+            "video-cut-demo.offer86.com",
+            "video-cut-demo.offer86.cn",
+            "video-cut-demo.86offer.com",
+            "video-cut-demo.86offer.cn"
           ]
         }
       },
