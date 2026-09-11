@@ -24,7 +24,8 @@
     },
     "deploymentProfile": {
       "allowed": [
-        "standalone"
+        "standalone",
+        "cloud"
       ]
     }
   },
