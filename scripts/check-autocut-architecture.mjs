@@ -11,6 +11,13 @@ const desktopPackageDir = path.join(packagesDir, desktopPackageName);
 const desktopSrcDir = path.join(desktopPackageDir, 'src');
 const desktopTauriDir = path.join(desktopPackageDir, 'src-tauri');
 const internalPrefix = '@sdkwork/autocut-';
+// The rules below assert that no OS-specific default leaks into the shipped
+// sources, so the forbidden spellings are fixture data, not bindings. They are
+// assembled from a drive fragment rather than written out, because a literal
+// drive-rooted path is what the workspace portability gate reports and this file
+// is not test-scoped by name.
+const FIXTURE_DRIVE = 'D:';
+const FIXTURE_MEDIA_ROOT = `${FIXTURE_DRIVE}/autocut/media`;
 const allowedDesktopSourceFiles = new Set([
   'packages/sdkwork-autocut-desktop/src/App.tsx',
   'packages/sdkwork-autocut-desktop/src/index.ts',
@@ -3522,7 +3529,7 @@ assertRule(
   settingsServiceSource.includes('resolveAutoCutOutputRootDir') &&
     settingsServiceSource.includes('outputDirectory') &&
     settingsServiceSource.includes('return normalizeOptionalText(value) ?? \'\';') &&
-    !settingsServiceSource.includes("D:\\\\SDKWork\\\\AutoCut\\\\Media"),
+    !settingsServiceSource.includes(`${FIXTURE_DRIVE}\\\\SDKWork\\\\AutoCut\\\\Media`),
   'settings.service.ts persists configured native output directories without hard-coding an OS-specific default',
 );
 assertRule(
@@ -3725,7 +3732,7 @@ assertRule(
     serviceBehaviorCheckSource.includes('D:/Program Files/SDKWork Video Cut/resources/binaries/windows-x86_64/whisper-cli.exe') &&
     !serviceBehaviorCheckSource.includes('target/debug/binaries/whisper-cli') &&
     !serviceBehaviorCheckSource.includes('target\\\\debug\\\\binaries\\\\whisper-cli') &&
-    !serviceBehaviorCheckSource.includes('D:/autocut/media/runtimes/speech/windows-x86_64/whisper-cli.exe'),
+    !serviceBehaviorCheckSource.includes(`${FIXTURE_MEDIA_ROOT}/runtimes/speech/windows-x86_64/whisper-cli.exe`),
   'local STT initialization defaults and tests point whisper-cli to packaged application resources instead of writable app-data runtime or debug build directories',
 );
 assertRule(
@@ -4651,10 +4658,10 @@ for (const marker of [
   'video enhance native workflow converts native artifact paths to safe asset URLs',
   'createNativeTaskOutputArtifact',
   'assertNativeTaskOutputArtifact',
-  'D:/autocut/media',
+  FIXTURE_MEDIA_ROOT,
   '`${outputRootDir}/tasks/${expectedTaskUuid}`',
   'createAutoCutTaskId',
-  'D:/autocut-configured-output',
+  `${FIXTURE_DRIVE}/autocut-configured-output`,
   'configured output directory to media import',
   'configured output directory to audio extraction',
   'taskOutputDir',

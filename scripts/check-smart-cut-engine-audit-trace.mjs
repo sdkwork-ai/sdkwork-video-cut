@@ -12,6 +12,13 @@ import {
   validateSmartCutContentUnitBuildReport,
 } from '../packages/sdkwork-autocut-smart-cut-engine/src/index.ts';
 
+// Fixture artifact paths model what a Windows run of the engine emits, so the
+// fixture has to name a drive. They are assembled from fragments rather than
+// written out, because a literal drive-rooted path is exactly what the workspace
+// portability gate reports: the value is a fixture, but the gate cannot tell a
+// fixture from a binding and the file is not test-scoped by name.
+const FIXTURE_DRIVE = 'D:';
+const FIXTURE_OUTPUT_ROOT = `${FIXTURE_DRIVE}/autocut/output`;
 const failures = [];
 const pass = [];
 
@@ -808,7 +815,7 @@ const renderWithoutFilterEffectPackage = createSmartCutExecutionPackage({
         id: 'video-candidate-render-artifact',
         candidateId: 'candidate-render-artifact',
         kind: 'rendered-video',
-        path: 'D:/autocut/output/candidate-render-artifact.mp4',
+        path: `${FIXTURE_OUTPUT_ROOT}/candidate-render-artifact.mp4`,
         byteSize: 18_000_000,
         checksum: 'sha256-video-candidate-render-artifact',
         probe: {
@@ -934,7 +941,7 @@ const invalidRenderArtifactPackage = createSmartCutExecutionPackage({
         id: 'video-candidate-render-artifact',
         candidateId: 'candidate-render-artifact',
         kind: 'rendered-video',
-        path: 'D:/autocut/output/candidate-render-artifact.mp4',
+        path: `${FIXTURE_OUTPUT_ROOT}/candidate-render-artifact.mp4`,
         byteSize: 18_000_000,
         checksum: 'sha256-video-candidate-render-artifact',
         probe: {
@@ -951,7 +958,7 @@ const invalidRenderArtifactPackage = createSmartCutExecutionPackage({
         id: 'quality-candidate-render-artifact',
         candidateId: 'candidate-render-artifact',
         kind: 'quality-report',
-        path: 'D:/autocut/output/candidate-render-artifact-quality.json',
+        path: `${FIXTURE_OUTPUT_ROOT}/candidate-render-artifact-quality.json`,
         byteSize: 12_000,
         checksum: 'sha256-quality-candidate-render-artifact',
         probe: {

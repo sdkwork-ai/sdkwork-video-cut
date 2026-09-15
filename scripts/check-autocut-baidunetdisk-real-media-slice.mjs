@@ -15,7 +15,12 @@ import {
 } from './autocut-cli-args.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
-const defaultBaiduNetdiskRootDir = 'E:/BaiduNetdiskDownload';
+// Baidu Netdisk installs its download directory on whichever drive the operator
+// picked, so the default is read from the environment and falls back to a
+// repository-relative directory. `--root-dir` (or the exported option) always
+// wins, and a missing directory is reported rather than guessed at.
+const defaultBaiduNetdiskRootDir =
+  process.env.SDKWORK_BAIDUNETDISK_ROOT_DIR ?? 'BaiduNetdiskDownload';
 const defaultOutputDir = 'artifacts/autocut-diagnostics/wenan5/slices-baidunetdisk-current';
 const defaultCandidatePattern = /5\.mp4$/iu;
 

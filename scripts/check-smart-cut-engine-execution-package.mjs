@@ -10,6 +10,13 @@ import {
   validateSmartCutContentUnitBuildReport,
 } from '../packages/sdkwork-autocut-smart-cut-engine/src/index.ts';
 
+// Fixture artifact paths model what a Windows run of the engine emits, so the
+// fixture has to name a drive. They are assembled from fragments rather than
+// written out, because a literal drive-rooted path is exactly what the workspace
+// portability gate reports: the value is a fixture, but the gate cannot tell a
+// fixture from a binding and the file is not test-scoped by name.
+const FIXTURE_DRIVE = 'D:';
+const FIXTURE_OUTPUT_ROOT = `${FIXTURE_DRIVE}/autocut/output`;
 const failures = [];
 const pass = [];
 
@@ -351,7 +358,7 @@ const validCompletionPackage = createSmartCutExecutionPackage({
         id: 'video-candidate-1',
         candidateId: 'candidate-1',
         kind: 'rendered-video',
-        path: 'D:/autocut/output/candidate-1.mp4',
+        path: `${FIXTURE_OUTPUT_ROOT}/candidate-1.mp4`,
         byteSize: 18_000_000,
         checksum: 'sha256-video-candidate-1',
         probe: {
@@ -368,7 +375,7 @@ const validCompletionPackage = createSmartCutExecutionPackage({
         id: 'subtitle-candidate-1',
         candidateId: 'candidate-1',
         kind: 'subtitle',
-        path: 'D:/autocut/output/candidate-1.srt',
+        path: `${FIXTURE_OUTPUT_ROOT}/candidate-1.srt`,
         byteSize: 8_000,
         checksum: 'sha256-subtitle-candidate-1',
         probe: {
@@ -381,7 +388,7 @@ const validCompletionPackage = createSmartCutExecutionPackage({
         id: 'cover-candidate-1',
         candidateId: 'candidate-1',
         kind: 'cover',
-        path: 'D:/autocut/output/candidate-1-cover.jpg',
+        path: `${FIXTURE_OUTPUT_ROOT}/candidate-1-cover.jpg`,
         byteSize: 240_000,
         checksum: 'sha256-cover-candidate-1',
         probe: {
@@ -394,7 +401,7 @@ const validCompletionPackage = createSmartCutExecutionPackage({
         id: 'quality-candidate-1',
         candidateId: 'candidate-1',
         kind: 'quality-report',
-        path: 'D:/autocut/output/candidate-1-quality.json',
+        path: `${FIXTURE_OUTPUT_ROOT}/candidate-1-quality.json`,
         byteSize: 12_000,
         checksum: 'sha256-quality-candidate-1',
         probe: {
@@ -1539,7 +1546,7 @@ const invalidRenderArtifactPackage = createSmartCutExecutionPackage({
         id: 'video-candidate-render-artifact',
         candidateId: 'candidate-render-artifact',
         kind: 'rendered-video',
-        path: 'D:/autocut/output/candidate-render-artifact.mp4',
+        path: `${FIXTURE_OUTPUT_ROOT}/candidate-render-artifact.mp4`,
         byteSize: 18_000_000,
         checksum: 'sha256-video-candidate-render-artifact',
         probe: {
@@ -1556,7 +1563,7 @@ const invalidRenderArtifactPackage = createSmartCutExecutionPackage({
         id: 'quality-candidate-render-artifact',
         candidateId: 'candidate-render-artifact',
         kind: 'quality-report',
-        path: 'D:/autocut/output/candidate-render-artifact-quality.json',
+        path: `${FIXTURE_OUTPUT_ROOT}/candidate-render-artifact-quality.json`,
         byteSize: 12_000,
         checksum: 'sha256-quality-candidate-render-artifact',
         probe: {

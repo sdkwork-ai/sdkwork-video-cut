@@ -402,6 +402,26 @@ function discoverGpuWhisperRuntime({
   };
 }
 
+// Toolchain roots are per-machine, so they come from the environment rather than
+// a pinned drive. SDKWORK_AUTOCUT_TOOLS_ROOTS holds a `path.delimiter`-separated
+// list; without it the Windows default follows the system drive and the POSIX
+// default is the usual install prefixes. Every candidate is existence-checked by
+// the caller, so an absent root simply drops out of the search.
+function configuredToolRoots() {
+  const configured = process.env.SDKWORK_AUTOCUT_TOOLS_ROOTS;
+  if (configured) {
+    return configured
+      .split(path.delimiter)
+      .map((value) => value.trim())
+      .filter(Boolean);
+  }
+  if (process.platform === 'win32') {
+    const systemDrive = process.env.SystemDrive ?? 'C:';
+    return [path.join(systemDrive, 'tools'), path.join(systemDrive, 'tmp')];
+  }
+  return ['/opt', '/usr/local', '/tmp'];
+}
+
 function normalizeSearchRoots({ rootDir, searchRoots }) {
   const values = Array.isArray(searchRoots) && searchRoots.length > 0
     ? searchRoots
@@ -409,9 +429,7 @@ function normalizeSearchRoots({ rootDir, searchRoots }) {
       rootDir,
       process.env.SDKWORK_AUTOCUT_GPU_WHISPER_ROOT,
       process.env.SDKWORK_AUTOCUT_WHISPER_ROOT,
-      process.platform === 'win32' ? 'D:\\tools' : '/opt',
-      process.platform === 'win32' ? 'C:\\tools' : '/usr/local',
-      process.platform === 'win32' ? 'D:\\tmp' : '/tmp',
+      ...configuredToolRoots(),
     ];
   return [...new Set(values
     .map((value) => normalizeOptionalPath(value))
