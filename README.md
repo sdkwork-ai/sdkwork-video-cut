@@ -97,7 +97,7 @@ To register an approved sidecar, use the package-local preparation command:
 
 ```bash
 git lfs install
-pnpm build:sidecar:ffmpeg -- --platform windows-x86_64 --source D:/tools/ffmpeg.exe --accept-license
+pnpm build:sidecar:ffmpeg -- --platform windows-x86_64 --source <tools-root>/ffmpeg.exe --accept-license
 ```
 
 The command copies the binary into
@@ -117,7 +117,7 @@ To register an approved local STT sidecar, use:
 
 ```bash
 git lfs install
-pnpm build:sidecar:speech -- --platform windows-x86_64 --source D:/tools/whisper-cli.exe --accept-license
+pnpm build:sidecar:speech -- --platform windows-x86_64 --source <tools-root>/whisper-cli.exe --accept-license
 pnpm build:sidecar:speech -- --platform windows-x86_64 --check --require-bundled
 ```
 
@@ -191,7 +191,7 @@ pnpm release:preview-ready
 Formal commercial release adds installer signing:
 
 ```bash
-pnpm release:sign-installers -- --cert-pfx D:/secure/sdkwork-autocut-release.pfx --cert-password <password>
+pnpm release:sign-installers -- --cert-pfx <secure-root>/sdkwork-autocut-release.pfx --cert-password <password>
 pnpm release:installer-signature
 pnpm release:evidence -- --platform windows-x86_64
 pnpm release:commercial-ready
