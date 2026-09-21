@@ -36,6 +36,7 @@
     "@sdkwork/autocut-video-enhance": "workspace:*",
     "@sdkwork/autocut-video-gif": "workspace:*",
     "@sdkwork/autocut-voice-translate": "workspace:*",
+    "@sdkwork/iam-credential-entry": "workspace:*",
     "@tauri-apps/api": "catalog:",
     "lucide-react": "catalog:",
     "pixi.js": "catalog:",
