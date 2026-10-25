@@ -6,18 +6,18 @@ import path from 'node:path';
 import process from 'node:process';
 
 const frameworkRef = 'b0829529b9277a3da32b90c2d36ff34ff09fa832';
-const workflowConfigPath = path.join(process.cwd(), 'sdkwork.workflow.json');
+const workflowConfigPath = path.join(process.cwd(), 'agent.workflow.json');
 const packageWorkflowPath = path.join(process.cwd(), '.github', 'workflows', 'package.yml');
 const legacyWorkflowPath = path.join(process.cwd(), '.github', 'workflows', 'autocut-desktop-release.yml');
 
 assert.equal(fs.existsSync(legacyWorkflowPath), false, 'legacy AutoCut desktop release workflow is removed');
-assert.equal(fs.existsSync(workflowConfigPath), true, 'sdkwork.workflow.json exists');
+assert.equal(fs.existsSync(workflowConfigPath), true, 'agent.workflow.json exists');
 assert.equal(fs.existsSync(packageWorkflowPath), true, 'standard package workflow entrypoint exists');
 
 const workflowConfig = JSON.parse(fs.readFileSync(workflowConfigPath, 'utf8'));
 const packageWorkflow = fs.readFileSync(packageWorkflowPath, 'utf8');
 
-assert.equal(workflowConfig.schemaVersion, '2026-06-06.sdkwork.workflow.v1');
+assert.equal(workflowConfig.schemaVersion, '2026-06-06.agent.workflow.v1');
 assert.deepEqual(workflowConfig.app, {
   id: 'sdkwork-video-cut',
   name: 'SDKWork Video Cut',
@@ -70,7 +70,7 @@ for (const marker of [
 for (const marker of [
   'name: Package Application',
   'workflow_dispatch:',
-  'config_path: sdkwork.workflow.json',
+  'config_path: agent.workflow.json',
   `sdkwork-ai/sdkwork-github-workflow/.github/workflows/sdkwork-package.yml@${frameworkRef}`,
   `framework_ref: ${frameworkRef}`,
   "package_version: ${{ github.event.inputs.package_version || '' }}",

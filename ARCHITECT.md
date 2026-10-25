@@ -558,7 +558,7 @@ Required invariants:
   `UNSIGNED_INSTALLERS_ACCEPTED_FOR_PREVIEW` warnings instead of commercial
   release blockers.
   Phase 1 multiplatform preview distribution is standardized by
-  `sdkwork.workflow.json`, the thin `.github/workflows/package.yml` reusable
+  `agent.workflow.json`, the thin `.github/workflows/package.yml` reusable
   workflow entrypoint, and
   `scripts/check-autocut-multiplatform-release-readiness.mjs`. The workflow
   lifecycle must build on native runners for Windows x86_64, Ubuntu/Linux

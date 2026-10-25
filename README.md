@@ -152,7 +152,7 @@ pnpm release:smoke-preflight -- --platform macos-aarch64 --require-bundled
 pnpm release:multiplatform-ready
 ```
 
-GitHub packaging is standardized through `sdkwork.workflow.json` and the thin
+GitHub packaging is standardized through `agent.workflow.json` and the thin
 `.github/workflows/package.yml` entrypoint, which calls
 `sdkwork-github-workflow`. The standard package targets build the desktop app on
 native hosted runners: `windows-latest`, `ubuntu-22.04`, `macos-15-intel`, and

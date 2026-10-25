@@ -1413,8 +1413,8 @@ const multiplatformReleaseReadinessSource = fs.existsSync(path.join(rootDir, 'sc
 const commercialReleaseReadinessSource = fs.existsSync(path.join(rootDir, 'scripts/check-autocut-commercial-release-readiness.mjs'))
   ? fs.readFileSync(path.join(rootDir, 'scripts/check-autocut-commercial-release-readiness.mjs'), 'utf8')
   : '';
-const sdkworkWorkflowConfigSource = fs.existsSync(path.join(rootDir, 'sdkwork.workflow.json'))
-  ? fs.readFileSync(path.join(rootDir, 'sdkwork.workflow.json'), 'utf8')
+const sdkworkWorkflowConfigSource = fs.existsSync(path.join(rootDir, 'agent.workflow.json'))
+  ? fs.readFileSync(path.join(rootDir, 'agent.workflow.json'), 'utf8')
   : '';
 const packageWorkflowSource = fs.existsSync(path.join(rootDir, '.github/workflows/package.yml'))
   ? fs.readFileSync(path.join(rootDir, '.github/workflows/package.yml'), 'utf8')
@@ -3210,7 +3210,7 @@ assertRule(
     packageWorkflowSource.includes('name: Package Application') &&
     packageWorkflowSource.includes('sdkwork-ai/sdkwork-github-workflow/.github/workflows/sdkwork-package.yml@b0829529b9277a3da32b90c2d36ff34ff09fa832') &&
     packageWorkflowSource.includes('framework_ref: b0829529b9277a3da32b90c2d36ff34ff09fa832') &&
-    packageWorkflowSource.includes('config_path: sdkwork.workflow.json') &&
+    packageWorkflowSource.includes('config_path: agent.workflow.json') &&
     !packageWorkflowSource.includes('gh release upload') &&
     !packageWorkflowSource.includes('actions/upload-artifact') &&
     sdkworkWorkflowConfigSource.includes('"windows-x64-desktop-msi"') &&
