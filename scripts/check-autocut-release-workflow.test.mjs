@@ -23,7 +23,7 @@ assert.deepEqual(workflowConfig.app, {
   name: 'SDKWork Video Cut',
   repository: 'sdkwork-ai/sdkwork-video-cut',
   sourcePath: '.',
-  configPath: 'sdkwork.app.config.json',
+  configPath: 'agent.app.config.json',
 });
 assert.equal(workflowConfig.release.artifactPrefix, 'sdkwork-video-cut');
 assert.equal(workflowConfig.release.changelog.source, 'auto');

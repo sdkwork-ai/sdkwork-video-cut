@@ -6,7 +6,7 @@
     "name": "SDKWork Video Cut",
     "repository": "sdkwork-ai/sdkwork-video-cut",
     "sourcePath": ".",
-    "configPath": "sdkwork.app.config.json"
+    "configPath": "agent.app.config.json"
   },
   "release": {
     "artifactPrefix": "sdkwork-video-cut",

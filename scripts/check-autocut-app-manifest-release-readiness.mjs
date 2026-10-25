@@ -12,7 +12,7 @@ import {
 
 const __filename = fileURLToPath(import.meta.url);
 const readinessSchemaVersion = '2026-05-08.autocut-app-manifest-release-readiness.v1';
-const defaultManifestRelativePath = 'sdkwork.app.config.json';
+const defaultManifestRelativePath = 'agent.app.config.json';
 const sha256Pattern = /^[a-f0-9]{64}$/u;
 const placeholderSha256Values = new Set([
   '0'.repeat(64),
@@ -102,15 +102,15 @@ function createManifestReleaseBlockers(manifest, packages, mode) {
   const blockers = [];
   const enabledPackages = packages.filter((installPackage) => installPackage?.enabled === true);
 
-  if (manifest.schemaVersion !== 3 || manifest.kind !== 'sdkwork.app') {
-    blockers.push(createBlocker('MANIFEST_SCHEMA_UNSUPPORTED', 'sdkwork.app.config.json must use sdkwork.app schemaVersion 3.'));
+  if (manifest.schemaVersion !== 3 || manifest.kind !== 'agent.app') {
+    blockers.push(createBlocker('MANIFEST_SCHEMA_UNSUPPORTED', 'agent.app.config.json must use agent.app schemaVersion 3.'));
   }
 
   if (mode === 'unknown') {
     blockers.push(
       createBlocker(
         'PUBLISH_STATUS_UNSUPPORTED',
-        'sdkwork.app.config.json publish.status must be ACTIVE, INACTIVE, DISABLED, or DELETED.',
+        'agent.app.config.json publish.status must be ACTIVE, INACTIVE, DISABLED, or DELETED.',
       ),
     );
   }
@@ -119,13 +119,13 @@ function createManifestReleaseBlockers(manifest, packages, mode) {
     blockers.push(
       createBlocker(
         'MANIFEST_SECURITY_POLICY_INCOMPLETE',
-        'sdkwork.app.config.json must require checksum, signature, and SBOM evidence.',
+        'agent.app.config.json must require checksum, signature, and SBOM evidence.',
       ),
     );
   }
 
   if (!Array.isArray(packages) || packages.length === 0) {
-    blockers.push(createBlocker('INSTALL_PACKAGES_MISSING', 'sdkwork.app.config.json must declare an install package matrix.'));
+    blockers.push(createBlocker('INSTALL_PACKAGES_MISSING', 'agent.app.config.json must declare an install package matrix.'));
     return blockers;
   }
 

@@ -527,7 +527,7 @@ commercially installable.
 The sync script must read the four platform `autocut-release-evidence-*.json`
 files plus `artifacts/release/autocut-sbom-evidence.json` and must be the only
 mechanism that copies release asset digests, package sizes, platform trust
-metadata, and SBOM metadata into `sdkwork.app.config.json`. CI preview jobs must
+metadata, and SBOM metadata into `agent.app.config.json`. CI preview jobs must
 use `--dry-run --allow-blocked` so commercial activation blockers are published
 without failing an unsigned preview release; `--activate-commercial` is reserved
 for the post-asset commercial activation step after real GitHub Release assets
@@ -556,7 +556,7 @@ Windows requires MSI/NSIS, Linux requires DEB/AppImage, and each macOS
 architecture requires DMG/app archive evidence. Every installer entry must have
 a non-empty path, positive byte size, and real SHA-256 digest before commercial
 readiness can pass.
-`sdkwork.app.config.json` must mirror the active release line: media asset
+`agent.app.config.json` must mirror the active release line: media asset
 version, `release.currentVersion`, latest channel, release notes, and package
 URLs must match the current package version. Production security flags must
 require checksums, signatures, and SBOM evidence. Planned GitHub Release

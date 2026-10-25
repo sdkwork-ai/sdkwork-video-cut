@@ -22,9 +22,9 @@ function writeJson(filePath, payload) {
 }
 
 function writeManifest(root) {
-  writeJson(path.join(root, 'sdkwork.app.config.json'), {
+  writeJson(path.join(root, 'agent.app.config.json'), {
     schemaVersion: 3,
-    kind: 'sdkwork.app',
+    kind: 'agent.app',
     publish: {
       status: 'INACTIVE',
     },

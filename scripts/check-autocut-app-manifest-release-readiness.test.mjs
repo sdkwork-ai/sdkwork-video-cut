@@ -15,11 +15,11 @@ function tempRoot(name) {
 }
 
 function writeManifest(root, overrides = {}) {
-  const manifestPath = path.join(root, 'sdkwork.app.config.json');
+  const manifestPath = path.join(root, 'agent.app.config.json');
   const manifest = mergeManifest(
     {
       schemaVersion: 3,
-      kind: 'sdkwork.app',
+      kind: 'agent.app',
       app: {
         key: 'sdkwork-video-cut',
         versionSource: 'package.json',

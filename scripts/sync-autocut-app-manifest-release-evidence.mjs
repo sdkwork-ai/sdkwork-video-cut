@@ -12,7 +12,7 @@ import {
 
 const __filename = fileURLToPath(import.meta.url);
 const syncSchemaVersion = '2026-05-08.autocut-app-manifest-release-evidence-sync.v1';
-const defaultManifestRelativePath = 'sdkwork.app.config.json';
+const defaultManifestRelativePath = 'agent.app.config.json';
 const defaultEvidenceDirRelativePath = 'artifacts/release';
 const defaultSbomEvidenceRelativePath = 'artifacts/release/autocut-sbom-evidence.json';
 const requiredPlatforms = ['windows-x86_64', 'linux-x86_64', 'macos-x86_64', 'macos-aarch64'];

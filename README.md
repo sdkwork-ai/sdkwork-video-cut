@@ -259,7 +259,7 @@ executable smoke, native smoke, smart slice quality/media evidence, platform
 installer artifacts with real byte sizes and SHA-256 digests, platform
 signing/notarization, installer signature, and execution readiness are all true
 on every platform.
-`pnpm release:app-manifest-ready` validates `sdkwork.app.config.json` before
+`pnpm release:app-manifest-ready` validates `agent.app.config.json` before
 publication. Inactive preview manifests may keep planned GitHub Release
 packages disabled without checksums only when each disabled package records the
 commercial activation evidence still required. Active commercial manifests must

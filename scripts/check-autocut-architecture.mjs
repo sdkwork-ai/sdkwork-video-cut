@@ -272,7 +272,7 @@ const allowedRootEntries = new Set([
   'pnpm-lock.yaml',
   'pnpm-workspace.yaml',
   'scripts',
-  'sdkwork.app.config.json',
+  'agent.app.config.json',
   'specs',
   'tsconfig.json',
 ]);
@@ -1204,8 +1204,8 @@ function toTaskTypeEnumKey(taskType) {
 
 const rootPackage = readJson(path.join(rootDir, 'package.json'));
 const rootTsconfig = readJson(path.join(rootDir, 'tsconfig.json'));
-const sdkworkAppConfig = fs.existsSync(path.join(rootDir, 'sdkwork.app.config.json'))
-  ? readJson(path.join(rootDir, 'sdkwork.app.config.json'))
+const sdkworkAppConfig = fs.existsSync(path.join(rootDir, 'agent.app.config.json'))
+  ? readJson(path.join(rootDir, 'agent.app.config.json'))
   : {};
 const desktopPackage = fs.existsSync(path.join(desktopPackageDir, 'package.json'))
   ? readJson(path.join(desktopPackageDir, 'package.json'))
@@ -1527,18 +1527,18 @@ assertRule(desktopPackage.name === '@sdkwork/autocut-desktop', 'desktop package 
 assertRule(desktopPackage.version === rootPackage.version, 'desktop package version matches root package.json version');
 assertRule(rootPackage.version === tauriConfig.version, 'root package.json version matches desktop Tauri application version');
 assertRule(cargoTomlSource.includes(`version = "${rootPackage.version}"`), 'desktop Tauri Cargo.toml package version matches root package.json version');
-assertRule(sdkworkAppConfig.app?.versionSource === 'package.json', 'sdkwork.app.config.json derives the application version from package.json');
-assertRule(sdkworkAppConfig.media?.metadata?.assetVersion === rootPackage.version, 'sdkwork.app.config.json media asset version matches root package.json version');
-assertRule(sdkworkAppConfig.release?.currentVersion === rootPackage.version, 'sdkwork.app.config.json release currentVersion matches root package.json version');
-assertRule(sdkworkAppConfig.release?.latest?.STABLE === rootPackage.version, 'sdkwork.app.config.json latest STABLE release matches root package.json version');
+assertRule(sdkworkAppConfig.app?.versionSource === 'package.json', 'agent.app.config.json derives the application version from package.json');
+assertRule(sdkworkAppConfig.media?.metadata?.assetVersion === rootPackage.version, 'agent.app.config.json media asset version matches root package.json version');
+assertRule(sdkworkAppConfig.release?.currentVersion === rootPackage.version, 'agent.app.config.json release currentVersion matches root package.json version');
+assertRule(sdkworkAppConfig.release?.latest?.STABLE === rootPackage.version, 'agent.app.config.json latest STABLE release matches root package.json version');
 assertRule(
   Array.isArray(sdkworkAppConfig.release?.notes) &&
     sdkworkAppConfig.release.notes.some((note) => note?.version === rootPackage.version && note?.current === true),
-  'sdkwork.app.config.json contains a current release note for the root package version',
+  'agent.app.config.json contains a current release note for the root package version',
 );
 assertRule(
   !JSON.stringify(sdkworkAppConfig).includes('/STABLE/0.1.0/'),
-  'sdkwork.app.config.json does not point install packages at stale v0.1.0 CDN artifacts',
+  'agent.app.config.json does not point install packages at stale v0.1.0 CDN artifacts',
 );
 const appInstallPackages = Array.isArray(sdkworkAppConfig.artifacts?.installConfig?.packages)
   ? sdkworkAppConfig.artifacts.installConfig.packages
@@ -1546,16 +1546,16 @@ const appInstallPackages = Array.isArray(sdkworkAppConfig.artifacts?.installConf
 for (const installPackage of appInstallPackages) {
   assertRule(
     installPackage?.enabled !== true || String(installPackage?.url ?? '').includes(`/STABLE/${rootPackage.version}/`),
-    `sdkwork.app.config.json enabled install package ${installPackage?.id ?? 'unknown'} points at the current release version`,
+    `agent.app.config.json enabled install package ${installPackage?.id ?? 'unknown'} points at the current release version`,
   );
   assertRule(
     installPackage?.enabled !== true || installPackage?.metadata?.generatedPlaceholder !== true,
-    `sdkwork.app.config.json enabled install package ${installPackage?.id ?? 'unknown'} is not marked as generated placeholder`,
+    `agent.app.config.json enabled install package ${installPackage?.id ?? 'unknown'} is not marked as generated placeholder`,
   );
 }
-assertRule(sdkworkAppConfig.security?.checksumRequired === true, 'sdkwork.app.config.json requires checksums for release install packages');
-assertRule(sdkworkAppConfig.security?.signatureRequired === true, 'sdkwork.app.config.json requires signatures for commercial release install packages');
-assertRule(sdkworkAppConfig.security?.sbomRequired === true, 'sdkwork.app.config.json requires SBOM evidence for commercial release install packages');
+assertRule(sdkworkAppConfig.security?.checksumRequired === true, 'agent.app.config.json requires checksums for release install packages');
+assertRule(sdkworkAppConfig.security?.signatureRequired === true, 'agent.app.config.json requires signatures for commercial release install packages');
+assertRule(sdkworkAppConfig.security?.sbomRequired === true, 'agent.app.config.json requires SBOM evidence for commercial release install packages');
 assertRule(cargoTomlSource.includes('name = "sdkwork-video-cut-desktop"'), 'Tauri Cargo.toml uses the standard desktop crate name');
 assertRule(cargoTomlSource.includes('edition = "2024"'), 'Tauri Cargo.toml uses Rust 2024 edition');
 assertRule(exists('packages/sdkwork-autocut-desktop/rust-toolchain.toml'), 'desktop package pins a package-local Rust toolchain');

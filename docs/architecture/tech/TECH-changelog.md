@@ -22,7 +22,7 @@ pure JSON.
 
 - Updates the root workspace, every AutoCut package manifest, component specs,
   Tauri application metadata, Rust desktop crate metadata, release workflow
-  defaults, release evidence defaults, and `sdkwork.app.config.json` to the
+  defaults, release evidence defaults, and `agent.app.config.json` to the
   `0.1.8` release line.
 - Keeps all `v0.1.7` runtime fixes: hidden Windows child processes, reduced
   duplicate FFmpeg probes, blocking native commands moved to the worker pool,
@@ -54,7 +54,7 @@ windows in the desktop app.
 
 - Updates the root workspace, every AutoCut package manifest, component specs,
   Tauri application metadata, Rust desktop crate metadata, release workflow
-  defaults, release evidence defaults, and `sdkwork.app.config.json` to the
+  defaults, release evidence defaults, and `agent.app.config.json` to the
   `0.1.7` release line.
 - Keeps install package metadata GitHub Release based and disabled until real
   asset digests, installer trust evidence, notarization/signature evidence, and
@@ -103,7 +103,7 @@ release-governance changes completed after the `v0.1.5` tag.
 
 - Updates the root workspace, every AutoCut package manifest, component specs,
   Tauri application metadata, Rust desktop crate metadata, release workflow
-  defaults, and `sdkwork.app.config.json` to the `0.1.6` release line.
+  defaults, and `agent.app.config.json` to the `0.1.6` release line.
 - Keeps local development dependencies on workspace-relative `workspace:*`
   packages and lockfile `link:` entries, with no direct dependency on
   `sdkwork-core`, `sdkwork-ui`, `sdkwork-appbase`, or `sdkwork-im-sdk`.
@@ -346,7 +346,7 @@ GitHub Releases without complete assets.
 - Keeps local AutoCut package dependencies as `workspace:*` for development.
 - Keeps release distribution through the GitHub repository and GitHub Release
   assets instead of publishing the internal AutoCut packages to npm central.
-- Updates `sdkwork.app.config.json` to the `v0.1.5` release line and points the
+- Updates `agent.app.config.json` to the `v0.1.5` release line and points the
   desktop package matrix at the GitHub Release asset names for Windows MSI/NSIS,
   Linux DEB/AppImage, and macOS Intel/Apple Silicon DMG packages.
 - Keeps all install packages disabled in the app manifest until real GitHub

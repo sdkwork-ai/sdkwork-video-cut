@@ -36,9 +36,9 @@ function readJson(filePath) {
 }
 
 function writeManifest(root) {
-  writeJson(path.join(root, 'sdkwork.app.config.json'), {
+  writeJson(path.join(root, 'agent.app.config.json'), {
     schemaVersion: 3,
-    kind: 'sdkwork.app',
+    kind: 'agent.app',
     app: {
       key: 'sdkwork-video-cut',
       versionSource: 'package.json',
@@ -187,7 +187,7 @@ const dryRunRoot = tempRoot('autocut-manifest-sync-dry-run');
 writeManifest(dryRunRoot);
 writeReleaseEvidenceSet(dryRunRoot);
 writeSbomEvidence(dryRunRoot);
-const beforeDryRunManifest = fs.readFileSync(path.join(dryRunRoot, 'sdkwork.app.config.json'), 'utf8');
+const beforeDryRunManifest = fs.readFileSync(path.join(dryRunRoot, 'agent.app.config.json'), 'utf8');
 const dryRunResult = syncAutoCutAppManifestReleaseEvidence({
   rootDir: dryRunRoot,
   activateCommercial: true,
@@ -197,7 +197,7 @@ const dryRunResult = syncAutoCutAppManifestReleaseEvidence({
 assert.equal(dryRunResult.schemaVersion, '2026-05-08.autocut-app-manifest-release-evidence-sync.v1');
 assert.equal(dryRunResult.commercialActivationReady, true);
 assert.equal(dryRunResult.manifestWritten, false);
-assert.equal(fs.readFileSync(path.join(dryRunRoot, 'sdkwork.app.config.json'), 'utf8'), beforeDryRunManifest);
+assert.equal(fs.readFileSync(path.join(dryRunRoot, 'agent.app.config.json'), 'utf8'), beforeDryRunManifest);
 assert.equal(
   formatAutoCutAppManifestReleaseEvidenceSyncMessage(dryRunResult),
   'ok - autocut app manifest release evidence sync packages=6 activateCommercial=true dryRun=true written=false blockers=0',
@@ -231,7 +231,7 @@ const activeResult = syncAutoCutAppManifestReleaseEvidence({
   rootDir: activeRoot,
   activateCommercial: true,
 });
-const activeManifest = readJson(path.join(activeRoot, 'sdkwork.app.config.json'));
+const activeManifest = readJson(path.join(activeRoot, 'agent.app.config.json'));
 
 assert.equal(activeResult.commercialActivationReady, true);
 assert.equal(activeResult.manifestWritten, true);
@@ -268,7 +268,7 @@ assert.deepEqual(
   missingSbomResult.blockers.map((blocker) => `${blocker.packageId}:${blocker.code}`),
   ['linux-debian-x64-desktop-deb:PACKAGE_SBOM_EVIDENCE_MISSING'],
 );
-assert.equal(readJson(path.join(missingSbomRoot, 'sdkwork.app.config.json')).publish.status, 'INACTIVE');
+assert.equal(readJson(path.join(missingSbomRoot, 'agent.app.config.json')).publish.status, 'INACTIVE');
 
 const blockedSbomEvidenceRoot = tempRoot('autocut-manifest-sync-blocked-sbom-evidence');
 writeManifest(blockedSbomEvidenceRoot);
@@ -308,7 +308,7 @@ assert.ok(
       blocker.packageId === 'desktop-web',
   ),
 );
-assert.equal(readJson(path.join(blockedSbomEvidenceRoot, 'sdkwork.app.config.json')).publish.status, 'INACTIVE');
+assert.equal(readJson(path.join(blockedSbomEvidenceRoot, 'agent.app.config.json')).publish.status, 'INACTIVE');
 
 const missingSignatureRoot = tempRoot('autocut-manifest-sync-missing-signature');
 writeManifest(missingSignatureRoot);

@@ -525,7 +525,7 @@ Required invariants:
   publication, but it must not generate synthetic SBOM content or accept
   caller-provided checksums.
   `scripts/sync-autocut-app-manifest-release-evidence.mjs` is the only
-  supported bridge from release evidence into `sdkwork.app.config.json`. It
+  supported bridge from release evidence into `agent.app.config.json`. It
   reads the four `autocut-release-evidence-<platform>.json` files plus
   `artifacts/release/autocut-sbom-evidence.json`, maps installer kind to package
   id, and writes package checksum, byte size, platform trust evidence, and SBOM
@@ -592,7 +592,7 @@ Required invariants:
   pass for public desktop releases: Windows Authenticode signing, macOS
   Developer ID signing plus Gatekeeper assessment and notarization, and Linux
   package signing/install smoke for `.deb` and `.AppImage`.
-- `sdkwork.app.config.json` is part of the release contract, not a placeholder
+- `agent.app.config.json` is part of the release contract, not a placeholder
   catalog. Its release version, latest channel, package URLs, and media asset
   version must match the current package version. Production security flags
   must require checksums, installer signatures, and SBOM evidence. Install
