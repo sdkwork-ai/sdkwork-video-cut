@@ -25,7 +25,7 @@ failures*.txt
 .env.test.local
 .env.staging.local
 .env.production.local
-.env.postgres
+config/host/postgres.env
 .env.release.local
 config/*.local.toml
 
@@ -36,7 +36,7 @@ config/*.local.toml
 **/target/
 .env.*
 !.env.*.example
-!.env.postgres.example
+!config/host/postgres.env.example
 **/dist/
 **/.pnpm-store/
 Thumbs.db
